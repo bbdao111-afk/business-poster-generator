@@ -121,7 +121,7 @@ python3 scripts/check_pointing_info.py --terms ./pointing-terms.txt .
 ├── scripts/                  # make_options · render_poster · export_png · check_pointing_info
 ├── art-type/                 # 字体层：fonts.json + 选版脚本 + 9 款字体 + LICENSES.md
 ├── assets/                   # 中性示例 brief + 全合成演示截图/Logo + 成品预览图 + 禁词表模板
-├── demo/                     # GitHub Pages 在线字体选版演示（单文件，72KB 字体子集）
+├── docs/                     # GitHub Pages 在线字体选版演示（源目录固定为 /docs）（单文件，72KB 字体子集）
 └── .github/workflows/        # 零指向门禁 CI + 渲染冒烟测试
 ```
 

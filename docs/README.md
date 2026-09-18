@@ -15,7 +15,7 @@ Skill 实际渲染海报时使用 `../art-type/fonts/` 下的**完整字体文�
 ## 本地运行
 
 ```bash
-cd demo && python3 -m http.server 8000   # 打开 http://localhost:8000
+cd docs && python3 -m http.server 8000   # 打开 http://localhost:8000
 ```
 
 ## 文案与素材
