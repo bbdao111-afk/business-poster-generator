@@ -7,14 +7,20 @@
 
 适用于中文 B2B 科技、云计算、IT 基础设施与企业服务营销场景。**不适合**纯艺术海报或一次性活动海报。
 
-![产品宣传海报示例（由本 Skill 从合成示例 brief 一键渲染，300 DPI）](assets/demo/preview-product-poster.jpg)
+<table><tr>
+<td width="50%"><img src="assets/demo/preview-product-poster.jpg" alt="产品宣传版海报示例"></td>
+<td width="50%"><img src="assets/demo/preview-case-poster.jpg" alt="客户案例版海报示例"></td>
+</tr><tr>
+<td align="center"><b>① 产品宣传版</b> · 浅底 794×1123<br>靠结构与证据：指标卡 / 界面实拍 / 核心能力 / 套餐表 / CTA 免责</td>
+<td align="center"><b>② 客户案例版</b> · 深底 1080×1440<br>靠场景与背书：联合品牌区 / 大主题 / 方案卡 / 实景 hero / 客户故事</td>
+</tr></table>
 
-> 上图完全由 `python3 scripts/render_poster.py assets/product-example.json` + `export_png.py --dpi 300` 生成，
-> 未使用任何图片生成模型：标题、数字、卡片、界面截图、Logo 全部由排版层渲染。
-> 图中品牌、指标、界面均为**合成示例内容**。
+> 两张图都由本 Skill 从示例 brief 直接渲染（`render_poster.py` + `export_png.py --dpi 300`），
+> **未使用任何图片生成模型**：标题、数字、卡片、界面、Logo 全部由排版层绘制。
+> 图中品牌、指标、界面与背景均为**合成示例内容**，不指向任何真实公司、产品或客户。
 
-**在线体验字体 × 效果选版** → [GitHub Pages Demo](https://bbdao111-afk.github.io/business-poster-generator/)
-（9 款可商用中文字体 × 6 种纯 CSS 艺术字效果，实时预览，无需安装）
+**在线体验** → [GitHub Pages Demo](https://bbdao111-afk.github.io/business-poster-generator/)
+含两种风格实拍对比 + **路由判定器**（勾选你手上的素材，看会被导向哪一版）+ 9 款可商用中文字体 × 6 种纯 CSS 效果实时选版。
 
 > 核心设计：所有关键中文文案、数字、Logo、二维码**必须由排版层渲染**，不交给图片模型生成——这是中文海报能被验收的前提。
 
@@ -30,6 +36,26 @@
 | 准备渲染数据（brief JSON） | [references/input-output.md](references/input-output.md) |
 | 处理大标题字体、字距、效果 | [references/art-type.md](references/art-type.md) |
 | 科技背景、标题光效、切角卡片 | [references/tech-poster-fx.md](references/tech-poster-fx.md) |
+
+## 两种风格如何自动区分
+
+输入材料决定版式，不是靠用户记得提前声明。Skill 在**门禁一**就按信号打分并**公开自己的判定**，用户可直接推翻：
+
+| 信号 | 权重 | 指向 |
+|---|---|---|
+| 产品彩页 / 方案书 / 参数表 | +3 | 产品版 |
+| 界面截图（2–4 张）、套餐与价格口径、"这个产品能做什么" | 各 +2 | 产品版 |
+| 客户名称与客户 Logo、客户场景/问题/落地成果 | 各 +3 | 案例版 |
+| 客户实景照片（厂区/机房/园区）、"这家客户发生了什么变化" | +2 / +2 | 案例版 |
+
+判定规则（与 `SKILL.md` 路由段一致）：
+
+- **用户明确指定 → 直接采用**，不再猜。
+- 未指定时比分数：**分高者胜**，产品版走浅底、案例版走深底。
+- **分差 ≤1 视为混合内容**：不得自行选择，必须把两种版式都做成编号选项让用户挑一个。
+- **零信号**：停在门禁一，先输出必选/可选素材清单。
+
+风格一旦确定，会连带决定主题（浅/深底）、画布尺寸、可用效果集合与字体推荐——例如浅底禁止使用深色版 `tech-shadow`（标题会与背景同色），这条也写在规则层里。
 
 ## 三道门禁
 

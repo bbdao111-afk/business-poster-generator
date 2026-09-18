@@ -75,6 +75,48 @@ body[data-theme="dark"] .card.on{box-shadow:0 0 0 2px rgba(0,174,239,.25)}
 .badge{position:absolute;top:10px;right:10px;font-size:11px;color:#fff;background:#c0392b;
   padding:2px 9px;border-radius:999px;letter-spacing:.02em}
 
+
+/* ---- 两种输出风格 + 路由判定 ---- */
+.sec{font-size:16px;font-weight:700;margin:40px 0 4px;letter-spacing:-.01em}
+.sec small{font-weight:400;color:var(--muted);font-size:12.5px;margin-left:8px}
+.sec-note{color:var(--muted);font-size:13px;margin:0 0 14px;line-height:1.7}
+.stylegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.stylecard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  cursor:pointer;transition:all .15s;display:flex;gap:0;align-items:stretch;padding:0}
+.stylecard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.stylecard.on{border-color:var(--accent);box-shadow:0 0 0 2px rgba(12,63,145,.18)}
+body[data-theme="dark"] .stylecard.on{box-shadow:0 0 0 2px rgba(0,174,239,.25)}
+.stylecard img{width:150px;min-width:150px;height:100%;object-fit:cover;object-position:top;
+  border-right:1px solid var(--line);background:#0a1830}
+.sc-body{padding:14px 16px 15px;min-width:0}
+.sc-body h3{margin:0 0 7px;font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;letter-spacing:.02em}
+.pill.light{background:#e8f0fb;color:#0c3f91}
+.pill.dark{background:#08213f;color:#56dfff;border:1px solid #1a6ba8}
+body[data-theme="dark"] .pill.light{background:#123156;color:#9fd0ff}
+.sc-body p{margin:0 0 8px;font-size:12.5px;color:var(--muted);line-height:1.65}
+.sc-sig{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.sc-sig li{font-size:11.5px;color:var(--text);border:1px dashed var(--line);border-radius:6px;padding:2px 7px}
+.sc-rec{margin-top:9px !important;color:var(--accent) !important;font-size:12px !important}
+.sigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;margin:14px 0 0}
+.sig{display:flex;align-items:flex-start;gap:9px;background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:10px 12px;cursor:pointer;font-size:13px;line-height:1.45;user-select:none}
+.sig:hover{border-color:var(--accent)}
+.sig input{margin:2px 0 0;accent-color:var(--accent);flex:0 0 auto}
+.sig .w{color:var(--muted);font-size:11.5px;display:block;margin-top:2px}
+.verdict{margin-top:16px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:12px;padding:16px 18px}
+.verdict .vt{font-size:15px;font-weight:700;margin-bottom:6px}
+.verdict .vd{font-size:12.5px;color:var(--muted);line-height:1.7}
+.verdict .score{font-size:12px;color:var(--muted);margin-top:8px;font-variant-numeric:tabular-nums}
+.vrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.vbtn{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  color:var(--text);font-size:12.5px;cursor:pointer}
+.vbtn:hover{border-color:var(--accent);color:var(--accent)}
+.vbtn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+body[data-theme="dark"] .vbtn.pri{background:#00aeef;border-color:#00aeef;color:#062033}
+.warnline{margin-top:10px;font-size:12.5px;color:#e0a800;line-height:1.6}
+
 /* ---- 8 种艺术字效果 ---- */
 .fx-plain{color:var(--ink)}
 .fx-gradient{background-image:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -99,6 +141,36 @@ footer{margin-top:34px;font-size:12px;color:var(--muted);line-height:1.9;border-
     已按字体分别配置字距（超宽字体用正字距，避免「基座」类笔画粘连）；点击下方字体卡片可切换放大预览。</p>
   </header>
 
+
+  <h2 class="sec">① 两种输出风格<small>同一个 Skill，按用途走不同版式与视觉逻辑</small></h2>
+  <p class="sec-note">点卡片可把下方选版区切到该风格的默认主题与推荐组合。两张图都由本 Skill 从示例 brief 直接渲染，未使用任何图片生成模型。</p>
+  <div class="stylegrid">
+    <div class="stylecard" data-style="product">
+      <img src="img/style-product.jpg" alt="产品宣传版海报示例（浅底）">
+      <div class="sc-body">
+        <h3>产品宣传版<span class="pill light">浅底 · 794×1123</span></h3>
+        <p>靠<b>结构和证据</b>建立可信度：指标卡、界面实拍、核心能力、套餐表、底部 CTA 与免责口径。</p>
+        <ul class="sc-sig"><li>彩页/方案书</li><li>参数表</li><li>界面截图</li><li>套餐与价格</li><li>选型建议</li></ul>
+        <p class="sc-rec">推荐：优设标题黑 / 思源黑体 × 纯净大字（浅底优先，避免深色效果与白底同色）</p>
+      </div>
+    </div>
+    <div class="stylecard" data-style="case">
+      <img src="img/style-case.jpg" alt="客户案例版海报示例（深底）">
+      <div class="sc-body">
+        <h3>客户案例版<span class="pill dark">深底 · 1080×1440</span></h3>
+        <p>靠<b>场景、客户背书与结果叙事</b>建立可信度：联合品牌区、大主题、方案卡、实景 hero、客户故事块。</p>
+        <ul class="sc-sig"><li>客户名称/Logo</li><li>遇到的问题</li><li>落地成果</li><li>实景照片</li><li>多地协同</li></ul>
+        <p class="sc-rec">推荐：优设标题黑 × 立体挤出（对应 Skill 的 tech-shadow 暗底 + 发光描边）</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec">② 路由判定器<small>勾选你手上实际有的素材，看 Skill 会把你导向哪一版</small></h2>
+  <p class="sec-note">这就是 Skill 里 <code>SKILL.md → 路由</code> 那条规则的可视化：判定结果只是<b>建议</b>，最终仍要在门禁一、门禁二拿到人工确认。</p>
+  <div class="sigs" id="sigs"></div>
+  <div class="verdict" id="verdict"></div>
+
+  <h2 class="sec">③ 字体 × 效果选版<small>9 款可商用中文字体 × 6 种纯 CSS 效果</small></h2>
   <div class="row" id="textTabs"></div>
   <div class="row" id="fxTabs"></div>
   <div class="row" style="margin-top:-4px">
@@ -124,7 +196,7 @@ footer{margin-top:34px;font-size:12px;color:var(--muted);line-height:1.9;border-
   <footer>
     字体来源（全部免费商用）：优设标题黑 / 庞门正道标题体 / 斗鱼追光体 2.0（作者免费商用授权）· 思源黑体 Heavy / 思源宋体 Heavy（Adobe，OFL 1.1）·
     得意黑 Smiley Sans v2.0.1（atelier-anchor，OFL）· 霞鹜文楷 v1.522（lxgw，OFL）· 站酷庆科黄油体（ZCOOL）· 马善政楷体（Google Fonts 收录）。<br>
-    Demo 内字体已按目标文案子集化（woff2）；正式 Skill 将打包完整字库。锐角字体字形比对见 src/font_match.py。
+    Demo 内字体已按目标文案子集化（woff2）；正式 Skill 打包完整字库。Skill 效果库共 11 种，本页展示其中 6 种纯 CSS 实现，其余（block-tech、dual-tone、tech-shadow 暗底/浅底、双色分阶等）由渲染器按主题注入，见 references/tech-poster-fx.md。锐角字体字形比对见 src/font_match.py。
   </footer>
 </div>
 
@@ -154,6 +226,82 @@ const Q=new URLSearchParams(location.search);
 let curFx=Q.get('fx')||'plain',curFont=Q.get('font')||'youshe';
 if(Q.get('theme')==='dark')document.body.dataset.theme='dark';
 if(Q.get('text')==='2')TEXT=TEXTS[1];
+
+
+/* ---------- 两种风格与路由判定 ---------- */
+const STYLES={
+  product:{label:'产品宣传版',theme:'light',font:'sans',fx:'plain',
+    why:'浅底 + 结构化证据；深色发光效果在白底会与背景同色，故排除。'},
+  case:{label:'客户案例版',theme:'dark',font:'youshe',fx:'extrude',
+    why:'深底 + 场景叙事；标题需要发光与层次，优先立体挤出/霓虹类效果。'}
+};
+const SIGNALS=[
+ {t:'有产品彩页 / 方案书 / 参数表',p:3,c:0},
+ {t:'有产品界面截图（2–4 张）',p:2,c:0},
+ {t:'有套餐内容、价格或上市退市口径',p:2,c:0},
+ {t:'想讲"这个产品能做什么"',p:2,c:0},
+ {t:'有客户名称与客户 Logo',p:0,c:3},
+ {t:'有客户场景、遇到的问题、落地成果',p:0,c:3},
+ {t:'有客户实景照片（厂区/机房/园区）',p:0,c:2},
+ {t:'想讲"这家客户发生了什么变化"',p:0,c:2},
+ {t:'输入里两类内容都有，但用户已明确指定',p:0,c:0,manual:true}
+];
+let picked=new Set(), manual=null;
+const Q2=new URLSearchParams(location.search);
+
+function score(){
+  let p=0,c=0,lead=[];
+  SIGNALS.forEach((s,i)=>{ if(!picked.has(i))return; p+=s.p; c+=s.c;
+    if(s.p)lead.push('产品信号+'+s.p); if(s.c)lead.push('案例信号+'+s.c); });
+  return {p,c,lead};
+}
+function applyStyle(id,scroll){
+  const st=STYLES[id]; if(!st)return;
+  curFont=st.font; curFx=st.fx; manual=id; setTheme(st.theme);
+  if(scroll)document.getElementById('textTabs').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function renderRouter(){
+  const {p,c}=score();
+  const v=document.getElementById('verdict');
+  let vt,vd,warn='';
+  if(manual){ vt='按你的指定 → '+STYLES[manual].label; vd=STYLES[manual].why; }
+  else if(p===0&&c===0){ vt='信息不足，无法判定'; vd='走门禁一：先输出必选/可选素材清单并停下，缺项不动手。'; }
+  else if(Math.abs(p-c)<=1){ vt='两类内容混合且不分主次'; warn='不得自行选择：必须把两种版式都做成编号选项，让用户明确选一个。'; vd='Skill 规则：材料混合时以用户明确要求为准；未说明才看主导信号。'; }
+  else if(p>c){ vt='判定 → 产品宣传版（浅底）'; vd='主导信号：产品能力与参数。推荐字体×效果见下方 ③。'; }
+  else { vt='判定 → 客户案例版（深底）'; vd='主导信号：客户名称、场景与落地成果。推荐字体×效果见下方 ③。'; }
+  v.innerHTML='<div class="vt">'+vt+'</div><div class="vd">'+vd+'</div>'+
+    '<div class="score">产品分 '+p+' · 案例分 '+c+'</div>'+
+    (warn?'<div class="warnline">⚠ '+warn+'</div>':'')+
+    '<div class="vrow">'+
+      '<button class="vbtn pri" data-act="product">按产品版选字体</button>'+
+      '<button class="vbtn pri" data-act="case">按案例版选字体</button>'+
+      '<button class="vbtn" data-act="reset">清除指定，回到自动判定</button>'+
+    '</div>';
+  v.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>{
+    const a=b.dataset.act;
+    if(a==='reset'){manual=null;renderRouter();render();return;}
+    applyStyle(a,true);
+  });
+  const active = manual || judge(p, c);
+  document.querySelectorAll('.stylecard').forEach(c2 =>
+    c2.classList.toggle('on', c2.dataset.style === active));
+}
+function judge(p,c){ if(p===0&&c===0)return null; if(Math.abs(p-c)<=1)return null; return p>c?'product':'case'; }
+const sigsEl=document.getElementById('sigs');
+(Q2.get('sigs')||'').split(',').filter(x=>x!=='').forEach(i=>{
+  const n=Number(i); if(SIGNALS[n]){picked.add(n); sigsEl.children[n] && (sigsEl.children[n].querySelector('input').checked=true);}
+});
+if(Q2.get('style'))manual=STYLES[Q2.get('style')]?Q2.get('style'):null;
+SIGNALS.forEach((s,i)=>{
+  const l=document.createElement('label');l.className='sig';
+  const w=s.p?'产品 +'+s.p:(s.c?'案例 +'+s.c:'手动指定');
+  l.innerHTML='<input type="checkbox"><span>'+s.t+'<span class="w">'+w+'</span></span>';
+  l.querySelector('input').onchange=e=>{e.target.checked?picked.add(i):picked.delete(i);
+    if(s.manual){manual=e.target.checked?(manual||'product'):null;}
+    renderRouter();};
+  sigsEl.appendChild(l);
+});
+document.querySelectorAll('.stylecard').forEach(c=>c.onclick=()=>applyStyle(c.dataset.style,true));
 
 const fxTabs=document.getElementById('fxTabs');
 EFFECTS.forEach(fx=>{
@@ -206,6 +354,7 @@ TEXTS.forEach((t,i)=>{
   textTabs.appendChild(b);
 });
 render();
+renderRouter();
 </script>
 </body>
 </html>
