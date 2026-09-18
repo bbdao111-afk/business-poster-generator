@@ -1,0 +1,117 @@
+{
+  "default": "youshe",
+  "fonts": [
+    {
+      "id": "youshe",
+      "name": "优设标题黑",
+      "family": "ArtYouShe",
+      "file": "youshe.ttf",
+      "weight": 900,
+      "letter_spacing": "+0.015em",
+      "tag": "机械切角 · 与公司既有海报风格一致（IoU 0.62）",
+      "license": "免费商用（优设网发布）",
+      "source": "https://github.com/ShuShuHong/FreeFronts"
+    },
+    {
+      "id": "pangmen",
+      "name": "庞门正道标题体",
+      "family": "ArtPangMen",
+      "file": "pangmen.ttf",
+      "weight": 900,
+      "letter_spacing": "+0.01em",
+      "tag": "宽体锐利 · 备选",
+      "license": "免费商用（庞门正道发布）",
+      "source": "https://github.com/ShuShuHong/FreeFronts"
+    },
+    {
+      "id": "douyu",
+      "name": "斗鱼追光体 2.0",
+      "family": "ArtDouyu",
+      "file": "douyu.ttf",
+      "weight": 700,
+      "letter_spacing": "0",
+      "tag": "原生斜体 · 科技感",
+      "license": "免费商用（斗鱼发布）",
+      "source": "https://github.com/cnbattle/douyuZGT"
+    },
+    {
+      "id": "sans",
+      "name": "思源黑体 Heavy",
+      "family": "ArtSHS",
+      "file": "sans-heavy.otf",
+      "weight": 900,
+      "letter_spacing": "-0.02em",
+      "tag": "科技硬朗 · B2B 基座",
+      "license": "OFL 1.1（Adobe）",
+      "source": "https://github.com/adobe-fonts/source-han-sans"
+    },
+    {
+      "id": "smiley",
+      "name": "得意黑 Oblique",
+      "family": "ArtSmiley",
+      "file": "smiley.ttf",
+      "weight": 700,
+      "letter_spacing": "-0.02em",
+      "tag": "斜切速度感",
+      "license": "OFL 1.1（atelier-anchor）",
+      "source": "https://github.com/atelier-anchor/smiley-sans"
+    },
+    {
+      "id": "wenkai",
+      "name": "霞鹜文楷 Medium",
+      "family": "ArtWenKai",
+      "file": "wenkai-medium.ttf",
+      "weight": 500,
+      "letter_spacing": "-0.01em",
+      "tag": "人文温度 · 案例/文化",
+      "license": "OFL 1.1（lxgw）",
+      "source": "https://github.com/lxgw/LxgwWenKai"
+    },
+    {
+      "id": "zcool",
+      "name": "站酷庆科黄油体",
+      "family": "ArtZCOOL",
+      "file": "zcool.ttf",
+      "weight": 700,
+      "letter_spacing": "-0.01em",
+      "tag": "圆润醒目 · 活动/促销",
+      "license": "免费商用（站酷发布）",
+      "source": "https://github.com/google/fonts"
+    },
+    {
+      "id": "serif",
+      "name": "思源宋体 Heavy",
+      "family": "ArtSerif",
+      "file": "serif-heavy.ttf",
+      "weight": 900,
+      "letter_spacing": "-0.01em",
+      "tag": "权威庄重 · 金融/政务",
+      "license": "OFL 1.1（Adobe/Google Noto Serif SC wght=900 实例化）",
+      "source": "https://github.com/google/fonts"
+    },
+    {
+      "id": "mashan",
+      "name": "马善政楷书",
+      "family": "ArtMaShan",
+      "file": "mashan.ttf",
+      "weight": 400,
+      "letter_spacing": "0",
+      "tag": "书法笔触 · 文化海报",
+      "license": "OFL 1.1（Google Fonts 收录）",
+      "source": "https://github.com/google/fonts"
+    }
+  ],
+  "effects": [
+    {"id": "plain",   "name": "纯净大字", "prefer": "any"},
+    {"id": "gradient","name": "渐变填充", "prefer": "any"},
+    {"id": "dual-tone","name": "双色分阶压印", "prefer": "light"},
+    {"id": "stroke",  "name": "双层描边", "prefer": "any"},
+    {"id": "outline-mix","name": "空心描边混排", "prefer": "light"},
+    {"id": "block-tech","name": "斜切渐变块反白", "prefer": "light"},
+    {"id": "extrude", "name": "立体挤出", "prefer": "any"},
+    {"id": "tech-shadow", "name": "科技主题阴影", "prefer": "dark"},
+    {"id": "tech-shadow-light", "name": "科技主题阴影（浅底）", "prefer": "light"},
+    {"id": "neon",    "name": "霓虹发光", "prefer": "dark"},
+    {"id": "skew",    "name": "斜切冲击", "prefer": "any"}
+  ]
+}

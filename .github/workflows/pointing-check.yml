@@ -1,0 +1,30 @@
+name: 零指向发布门禁
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 扫描指向信息（禁词表存在时一并生效）
+        run: |
+          if [ -f pointing-terms.txt ]; then
+            python3 scripts/check_pointing_info.py --terms pointing-terms.txt --format github
+          else
+            python3 scripts/check_pointing_info.py --format github
+          fi
+
+      - name: 渲染冒烟测试（示例 brief 必须能出 HTML）
+        run: |
+          python3 scripts/render_poster.py assets/product-example.json --output /tmp/p.html
+          python3 scripts/render_poster.py assets/case-example.json --output /tmp/c.html
+          test -s /tmp/p.html && test -s /tmp/c.html

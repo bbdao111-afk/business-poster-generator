@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 环境与密钥
+.env
+*.pem
+
+# 生成产物（本地跑出来的海报不入库）
+out/
+output-*/
+*.tmp

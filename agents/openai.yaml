@@ -1,0 +1,4 @@
+interface:
+  display_name: "商业海报生成器"
+  short_description: "先选中文字体与主题阴影，再生成科技商业海报"
+  default_prompt: "请根据我提供的客户名称、客户Logo、公司Logo、案例介绍和背景图片，先输出字体×大主题效果选版，确认后再生成商业海报。"

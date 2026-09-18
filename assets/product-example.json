@@ -1,0 +1,32 @@
+{
+  "type": "product",
+  "brand": "示例科技 DEMOTECH",
+  "company_logo": "assets/demo/company-logo.png",
+  "badge": "Q4 冲刺套餐",
+  "title": "新一代硬件平台",
+  "subtitle": "极致性价比王者，{单用户成本} 直降",
+  "intro": "兼顾性能与体验，引入新一代硬件平台，满足更多办公场景交付需求。",
+  "highlights": ["单核性能提升，降低核心数与单点成本", "全新轻载 GPU 场景，覆盖教学实训与看图需求"],
+  "metrics": [
+    {"value": "48%", "label": "单核性能", "note": "样例数据"},
+    {"value": "30%", "label": "单用户成本", "note": "样例数据"},
+    {"value": "60%", "label": "虚机延迟", "note": "样例数据"}
+  ],
+  "screens_label": "产品界面实拍",
+  "screens": [
+    {"img": "assets/demo/screens/ai-qa.png", "label": "AI 智能问答"},
+    {"img": "assets/demo/screens/diagnose.png", "label": "系统一键诊断"},
+    {"img": "assets/demo/screens/repair.png", "label": "故障一键修复"},
+    {"img": "assets/demo/screens/dashboard.png", "label": "运维数据看板"}
+  ],
+  "sections": [
+    {"title": "核心能力", "points": ["以可核验的能力描述替代堆砌参数", "支持主流信创操作系统", "关键指标可对照原始材料复核"]},
+    {"title": "适用场景", "points": ["安全办公与多分支机构统一交付", "教学实训与机房统一管理", "在线 3D 看图与设计协同"]},
+    {"title": "配置建议", "points": ["按并发规模测算授权点数", "按应用类型选择硬件与算力", "预留 20% 以上性能余量"]},
+    {"title": "采购价值", "points": ["满足性能目标的同时优化整体拥有成本", "存量资源可利旧，降低迁移投入", "统一运维降低长期人力成本"]}
+  ],
+  "cta": "限时上架 · 详情咨询销售",
+  "source_note": "示例内容，仅用于模板验证；实际数据以用户提供材料为准。",
+  "title_font": "youshe",
+  "title_effect": "tech-shadow-light"
+}
