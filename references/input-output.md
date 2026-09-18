@@ -43,10 +43,12 @@
 |---|---|---|
 | 案例客户 Logo | 是 | `customer_logo`，透明底 PNG 优先；不得伪造或改色 |
 | 背景图片 | 是 | `hero_image`，客户实景或行业场景图；缺失时向用户索取 |
-| 案例介绍 | 是 | 项目背景、方案与成效原文；据此提炼 `customer`、`customer_position`、`solutions`、`summary` |
+| 案例介绍 | 是 | 项目背景、方案与成效原文；据此提炼 `customer`、`customer_position`、`solutions`、`results`、`summary` |
 | 海报大标题 | 否 | `campaign`，两行以内；未提供时从案例介绍中提炼，并明确标注为营销改写 |
 
 供应商 Logo、二维码按有则用之、无则占位的原则处理。
+
+**`results` 为可选字段**（最多 3 条，`value`/`label`/`note`）：只在有可核验数字时提供，缺省时案例版不渲染成果带；提供时每条必须带 `note` 写明来源、口径或比较基准，不得留空或写"效果显著"。
 
 ## 大标题字体与效果（两类海报通用）
 
@@ -80,6 +82,7 @@ brief JSON 可选字段，配合「大字选版」流程使用（详见 [艺术�
   "customer": "客户简称",
   "customer_position": "行业定位",
   "solutions": [{"name": "桌面云", "value": "核心设计数据集中管控，实现安全协作"}],
+  "results": [{"value": "1200+", "label": "研发终端统一承载", "note": "口径与统计区间"}],
   "summary": "挑战、方案与结果摘要",
   "vendor_logo": "/绝对路径/vendor-logo.png",
   "customer_logo": "/绝对路径/customer-logo.png",
