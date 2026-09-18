@@ -16,3 +16,9 @@
 | mashan.ttf | 马善政楷体 | SIL OFL 1.1 | google/fonts 收录 |
 
 OFL 1.1 许可证全文：https://openfontlicense.org/
+
+
+## 网页演示子集
+
+`demo/fonts/*.woff2` 是仅为在线选版演示生成的**字形子集**（约 72KB），不作为排版输出用字体分发；
+Skill 实际渲染海报时使用本目录下的完整字体文件。子集沿用上游许可证条款，如需二次分发请连同本说明一并保留。

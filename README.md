@@ -1,11 +1,20 @@
 # 商业海报生成器 · business-poster-generator
 
 [![零指向发布门禁](https://github.com/bbdao111-afk/business-poster-generator/actions/workflows/pointing-check.yml/badge.svg)](https://github.com/bbdao111-afk/business-poster-generator/actions/workflows/pointing-check.yml)
-![License](https://img.shields.io/badge/License-MIT-green) ![字体](https://img.shields.io/badge/%E5%AD%97%E4%BD%93-OFL%20%2B%20%E5%85%8D%E8%B4%B9%E5%95%86%E7%94%A8-blue)
+![License](https://img.shields.io/badge/License-MIT-green) ![在线选版 Demo](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E9%80%89%E7%89%88%20Demo-GitHub%20Pages-brightgreen) ![字体](https://img.shields.io/badge/%E5%AD%97%E4%BD%93-OFL%20%2B%20%E5%85%8D%E8%B4%B9%E5%95%86%E7%94%A8-blue)
 
 一个**路由式（rule-routed）海报生成 Skill**：把产品彩页、方案 PDF/Word 或客户案例材料，经过「素材收集 → 方案选版 → 成品输出」三道硬门禁，转成可编辑 HTML 与 300 DPI 印刷级 PNG。
 
 适用于中文 B2B 科技、云计算、IT 基础设施与企业服务营销场景。**不适合**纯艺术海报或一次性活动海报。
+
+![产品宣传海报示例（由本 Skill 从合成示例 brief 一键渲染，300 DPI）](assets/demo/preview-product-poster.jpg)
+
+> 上图完全由 `python3 scripts/render_poster.py assets/product-example.json` + `export_png.py --dpi 300` 生成，
+> 未使用任何图片生成模型：标题、数字、卡片、界面截图、Logo 全部由排版层渲染。
+> 图中品牌、指标、界面均为**合成示例内容**。
+
+**在线体验字体 × 效果选版** → [GitHub Pages Demo](https://bbdao111-afk.github.io/business-poster-generator/)
+（9 款可商用中文字体 × 6 种纯 CSS 艺术字效果，实时预览，无需安装）
 
 > 核心设计：所有关键中文文案、数字、Logo、二维码**必须由排版层渲染**，不交给图片模型生成——这是中文海报能被验收的前提。
 
@@ -111,7 +120,8 @@ python3 scripts/check_pointing_info.py --terms ./pointing-terms.txt .
 ├── references/               # 规则层（按需加载）：workflow / product / case / input-output / art-type / tech-poster-fx / desensitize
 ├── scripts/                  # make_options · render_poster · export_png · check_pointing_info
 ├── art-type/                 # 字体层：fonts.json + 选版脚本 + 9 款字体 + LICENSES.md
-├── assets/                   # 中性示例 brief + 全合成演示截图/Logo + 禁词表模板
+├── assets/                   # 中性示例 brief + 全合成演示截图/Logo + 成品预览图 + 禁词表模板
+├── demo/                     # GitHub Pages 在线字体选版演示（单文件，72KB 字体子集）
 └── .github/workflows/        # 零指向门禁 CI + 渲染冒烟测试
 ```
 

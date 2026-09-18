@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中文海报艺术字选版 Demo · 示例平台成为办公基座</title>
+<style>
+@font-face{font-family:'DemoSHS';src:url('fonts/sans-heavy.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'DemoSmiley';src:url('fonts/smiley.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'DemoWenKai';src:url('fonts/wenkai.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'DemoZCOOL';src:url('fonts/zcool.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'DemoSerif';src:url('fonts/serif-heavy.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'DemoMaShan';src:url('fonts/mashan.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'DemoYouShe';src:url('fonts/youshe.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'DemoPangMen';src:url('fonts/pangmen.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'DemoDouyu';src:url('fonts/douyu.woff2') format('woff2');font-display:swap}
+
+*{box-sizing:border-box}
+:root{
+  --bg:#f6f8fa;--card:#ffffff;--text:#1e2b3a;--muted:#63778b;--line:#dfe7ee;
+  --accent:#0c3f91;--accent2:#72be2d;--cyan:#00aeef;
+  --ink:#0c3f91;--grad:linear-gradient(120deg,#0c3f91 10%,#00aeef 55%,#72be2d 95%);
+  --stroke:#0c3f91;--fill:#ffffff;
+  --x-face:#0c3f91;--x-e:#7a94b5;
+  --s1:#0c3f91;--s2:#72be2d;
+  --k-c:#0c3f91;--k-s:#72be2d;
+}
+body[data-theme="dark"]{
+  --bg:#08182f;--card:#0e2445;--text:#e8f1fa;--muted:#8fa8c4;--line:#1c3a63;
+  --ink:#ffffff;
+  --grad:linear-gradient(120deg,#6ec4ff 10%,#7ef0d0 55%,#ffd75e 95%);
+  --stroke:#56dfff;--fill:#08182f;
+  --x-face:#7fd4ff;--x-e:#0a2e5e;
+  --s1:#56dfff;--s2:#00e0a4;
+  --k-c:#ffffff;--k-s:#00aeef;
+}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;transition:background .25s}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 28px 60px}
+
+header h1{font-size:24px;font-weight:700;margin:0 0 6px;letter-spacing:-.01em}
+header p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.7}
+header b{color:var(--accent);font-weight:600}
+
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 14px}
+.chip{padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:var(--card);
+  color:var(--text);font-size:13.5px;cursor:pointer;transition:all .15s;user-select:none}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+body[data-theme="dark"] .chip.on{background:#00aeef;border-color:#00aeef;color:#062033}
+.spacer{flex:1}
+.tbtn{padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:var(--card);
+  color:var(--text);font-size:13.5px;cursor:pointer}
+.combos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.combos .chip{font-size:12.5px;color:var(--muted)}
+.combos .chip:hover{color:var(--accent)}
+.combos .lb{font-size:12.5px;color:var(--muted);align-self:center;margin-right:2px}
+
+.hero{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:48px 24px;text-align:center;position:relative;overflow:hidden;transition:background .25s}
+.hero .cap{position:absolute;top:14px;left:18px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+.hero .sample{font-size:clamp(44px,9vw,104px);line-height:1.08;letter-spacing:-.03em;font-weight:900}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px 18px;
+  cursor:pointer;transition:all .15s;position:relative}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card.on{border-color:var(--accent);box-shadow:0 0 0 2px rgba(12,63,145,.18)}
+body[data-theme="dark"] .card.on{box-shadow:0 0 0 2px rgba(0,174,239,.25)}
+.card .sample{font-size:clamp(26px,4.2vw,44px);line-height:1.16;letter-spacing:-.03em;font-weight:900;
+  min-height:3.4em;overflow-wrap:anywhere}
+.card .meta{display:flex;align-items:baseline;gap:10px;margin-top:16px;padding-top:12px;border-top:1px dashed var(--line)}
+.card .name{font-size:14px;font-weight:600}
+.card .tag{font-size:12px;color:var(--muted)}
+.badge{position:absolute;top:10px;right:10px;font-size:11px;color:#fff;background:#c0392b;
+  padding:2px 9px;border-radius:999px;letter-spacing:.02em}
+
+/* ---- 8 种艺术字效果 ---- */
+.fx-plain{color:var(--ink)}
+.fx-gradient{background-image:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fx-stroke{paint-order:stroke fill;-webkit-text-stroke:2.5px var(--stroke);color:var(--fill);
+  filter:drop-shadow(0 3px 5px rgba(9,42,88,.22))}
+.fx-extrude{color:var(--x-face);text-shadow:
+  1px 1px 0 var(--x-e),2px 2px 0 var(--x-e),3px 3px 0 var(--x-e),4px 4px 0 var(--x-e),
+  5px 5px 0 var(--x-e),6px 6px 0 var(--x-e),7px 7px 0 var(--x-e),8px 8px 0 var(--x-e),
+  10px 12px 22px rgba(7,30,63,.35)}
+.fx-neon{color:#fff;text-shadow:0 0 5px #fff,0 0 12px #00c3ff,0 0 26px #008dff,0 0 52px #0057ff}
+.fx-skew{display:inline-block;transform:skewX(-8deg);color:var(--k-c);
+  text-shadow:4px 4px 0 var(--k-s),7px 7px 14px rgba(9,42,88,.28)}
+
+footer{margin-top:34px;font-size:12px;color:var(--muted);line-height:1.9;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body data-theme="light">
+<div class="wrap">
+  <header>
+    <h1>中文海报艺术字选版 Demo</h1>
+    <p>演示文案：<b>示例平台成为办公基座</b>（可切换「守住企业核心数据」与案例海报对照）· 9 款免费商用中文展示字体 × 6 种纯 CSS 艺术字效果，默认组合 <b>优设标题黑 × 纯净大字</b>。
+    已按字体分别配置字距（超宽字体用正字距，避免「基座」类笔画粘连）；点击下方字体卡片可切换放大预览。</p>
+  </header>
+
+  <div class="row" id="textTabs"></div>
+  <div class="row" id="fxTabs"></div>
+  <div class="row" style="margin-top:-4px">
+    <button class="tbtn" id="themeBtn">切换 明/暗 背景</button>
+  </div>
+  <div class="combos">
+    <span class="lb">推荐组合：</span>
+    <span class="chip" data-fx="plain" data-font="youshe">优设标题黑 × 纯净大字（默认）</span>
+    <span class="chip" data-fx="extrude" data-font="youshe">优设标题黑 × 立体挤出</span>
+    <span class="chip" data-fx="stroke" data-font="youshe">优设标题黑 × 双层描边</span>
+    <span class="chip" data-fx="skew" data-font="douyu">斗鱼追光体 × 斜切冲击</span>
+    <span class="chip" data-fx="extrude" data-font="sans">思源黑体 × 立体挤出</span>
+    <span class="chip" data-fx="neon" data-font="zcool">黄油体 × 霓虹发光</span>
+  </div>
+
+  <div class="hero">
+    <div class="cap" id="heroCap"></div>
+    <div class="sample" id="heroSample"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    字体来源（全部免费商用）：优设标题黑 / 庞门正道标题体 / 斗鱼追光体 2.0（作者免费商用授权）· 思源黑体 Heavy / 思源宋体 Heavy（Adobe，OFL 1.1）·
+    得意黑 Smiley Sans v2.0.1（atelier-anchor，OFL）· 霞鹜文楷 v1.522（lxgw，OFL）· 站酷庆科黄油体（ZCOOL）· 马善政楷体（Google Fonts 收录）。<br>
+    Demo 内字体已按目标文案子集化（woff2）；正式 Skill 将打包完整字库。锐角字体字形比对见 src/font_match.py。
+  </footer>
+</div>
+
+<script>
+const TEXTS=['示例平台成为办公基座','守住企业核心数据'];
+let TEXT=TEXTS[0];
+const FONTS=[
+  {id:'youshe',name:'优设标题黑',family:'DemoYouShe',tag:'机械切角 · 与目标海报 IoU 0.62',badge:'★ 最接近目标字体',ls:'+0.015em'},
+  {id:'pangmen',name:'庞门正道标题体',family:'DemoPangMen',tag:'宽体锐利 · IoU 0.45',ls:'+0.01em'},
+  {id:'douyu', name:'斗鱼追光体 2.0',family:'DemoDouyu',  tag:'原生斜体 · 科技感',ls:'0'},
+  {id:'sans',  name:'思源黑体 Heavy', family:'DemoSHS',    tag:'科技硬朗 · B2B 基座首选',ls:'-0.02em'},
+  {id:'smiley',name:'得意黑 Oblique', family:'DemoSmiley', tag:'斜切速度感 · 天生大字',ls:'-0.02em'},
+  {id:'wenkai',name:'霞鹜文楷 Medium',family:'DemoWenKai', tag:'人文温度 · 案例/文化',ls:'-0.01em'},
+  {id:'zcool', name:'站酷庆科黄油体', family:'DemoZCOOL',  tag:'圆润醒目 · 活动/促销',ls:'-0.01em'},
+  {id:'serif', name:'思源宋体 Heavy', family:'DemoSerif',  tag:'权威庄重 · 金融/政务',ls:'-0.01em'},
+  {id:'mashan',name:'马善政楷书',     family:'DemoMaShan', tag:'书法笔触 · 文化海报',ls:'0'},
+];
+const EFFECTS=[
+  {id:'plain',  name:'纯净大字', prefer:'any'},
+  {id:'gradient',name:'渐变填充', prefer:'any'},
+  {id:'stroke', name:'双层描边', prefer:'any'},
+  {id:'extrude',name:'立体挤出', prefer:'any'},
+  {id:'neon',   name:'霓虹发光', prefer:'dark'},
+  {id:'skew',   name:'斜切冲击', prefer:'any'},
+];
+const Q=new URLSearchParams(location.search);
+let curFx=Q.get('fx')||'plain',curFont=Q.get('font')||'youshe';
+if(Q.get('theme')==='dark')document.body.dataset.theme='dark';
+if(Q.get('text')==='2')TEXT=TEXTS[1];
+
+const fxTabs=document.getElementById('fxTabs');
+EFFECTS.forEach(fx=>{
+  const b=document.createElement('button');
+  b.className='chip';b.textContent=fx.name;b.dataset.fx=fx.id;
+  b.onclick=()=>{curFx=fx.id;
+    if(fx.prefer==='dark'&&document.body.dataset.theme!=='dark')setTheme('dark');
+    render()};
+  fxTabs.appendChild(b);
+});
+const grid=document.getElementById('grid');
+FONTS.forEach(f=>{
+  const c=document.createElement('div');
+  c.className='card';c.dataset.font=f.id;
+  const badge=f.badge?`<span class="badge">${f.badge}</span>`:'';
+  c.innerHTML=`${badge}<div class="sample fx-${curFx}" style="font-family:'${f.family}';letter-spacing:${f.ls}">${TEXT}</div>
+    <div class="meta"><span class="name">${f.name}</span><span class="tag">${f.tag}</span></div>`;
+  c.onclick=()=>{curFont=f.id;render()};
+  grid.appendChild(c);
+});
+document.getElementById('themeBtn').onclick=()=>setTheme(document.body.dataset.theme==='light'?'dark':'light');
+function setTheme(t){document.body.dataset.theme=t;render()}
+document.querySelectorAll('.combos .chip').forEach(ch=>{
+  ch.onclick=()=>{curFx=ch.dataset.fx;curFont=ch.dataset.font;
+    const fx=EFFECTS.find(e=>e.id===curFx);
+    if(fx.prefer==='dark')setTheme('dark');else render()};
+});
+function render(){
+  document.querySelectorAll('#fxTabs .chip').forEach(b=>b.classList.toggle('on',b.dataset.fx===curFx));
+  document.querySelectorAll('#textTabs .chip').forEach(b=>b.classList.toggle('on',b.dataset.text===(TEXT===TEXTS[1]?'2':'1')));
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.toggle('on',c.dataset.font===curFont);
+    const s=c.querySelector('.sample');
+    s.className='sample fx-'+curFx;
+    s.textContent=TEXT;
+  });
+  const f=FONTS.find(x=>x.id===curFont),fx=EFFECTS.find(x=>x.id===curFx);
+  const h=document.getElementById('heroSample');
+  h.className='sample fx-'+curFx;h.style.fontFamily="'"+f.family+"'";
+  h.style.letterSpacing=f.ls;
+  h.textContent=TEXT;
+  document.getElementById('heroCap').textContent=f.name+' × '+fx.name;
+  document.title='艺术字 Demo · '+f.name+' × '+fx.name;
+}
+const textTabs=document.getElementById('textTabs');
+TEXTS.forEach((t,i)=>{
+  const b=document.createElement('button');
+  b.className='chip';b.textContent=t;b.dataset.text=String(i+1);
+  b.onclick=()=>{TEXT=t;render()};
+  textTabs.appendChild(b);
+});
+render();
+</script>
+</body>
+</html>
